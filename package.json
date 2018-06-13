@@ -4,7 +4,7 @@
   "description": "Creating my own express server structure for api development",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node starter.js"
   },
   "keywords": [
     "express",
@@ -20,5 +20,9 @@
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "mongoose": "^5.1.4"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0"
   }
 }
