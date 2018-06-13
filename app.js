@@ -7,4 +7,4 @@ import indexRouter from './routes/index';
 
 app.use('/', indexRouter);
 
-module.exports = app;
+export default app;
