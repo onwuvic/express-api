@@ -1,16 +1,17 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+import express from 'express';
+import { urlencoded } from 'body-parser';
+
 const router = express.Router();
 
-router.use(bodyParser.urlencoded({ extended: true}));
+router.use(urlencoded({ extended: true}));
 
-router.get('/', function(req, res) {
+router.get('/', (req, res) => {
     res.status(200).send('Home Page');
 });
 
-router.get('/users', function(req, res) {
+router.get('/users', (req, res) => {
     res.status(200).send('Users Page');
 });
 
 
-module.exports = router;
+export default router;
