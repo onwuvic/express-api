@@ -1,8 +1,8 @@
-const express = require('express');
+import express from 'express';
 const app = express();
 // need a database
 
-const indexRouter = require('./routes/index');
+import indexRouter from './routes/index';
 
 
 app.use('/', indexRouter);
