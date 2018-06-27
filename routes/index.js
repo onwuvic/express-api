@@ -1,16 +1,25 @@
 import express from 'express';
-import { urlencoded } from 'body-parser';
-import { index, user } from './../controllers/UserController';
+import { index, users, create, update, destroy, show } from './../controllers/UserController';
 
 const router = express.Router();
 
-router.use(urlencoded({ extended: true}));
-
+// HOME PAGE
 router.get('/', index);
 
-router.get('/users', user);
+// GET ALL USERS
+router.get('/users', users);
 
-// router.post('/users', UserController.create());
+// GET ONE USER
+router.get('/user/:id', show);
+
+// CREATE NEW USER
+router.post('/user', create);
+
+// UPDATE ONE USER
+router.patch('/user/:id', update);
+
+// DELETE ONE USER
+router.delete('/user/:id', destroy);
 
 
 export default router;
