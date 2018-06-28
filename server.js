@@ -1,8 +1,8 @@
-// require('dotenv').config()
 /**
  * Module dependencies.
  */
 import app from './app';
+import config from './config';
 let debug = require('debug')('my-api:server');
 import http from 'http';
 
@@ -10,7 +10,7 @@ import http from 'http';
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(config.port || '3000');
 app.set('port', port);
 
 /**
@@ -30,17 +30,17 @@ server.on('listening', onListening);
  */
 function normalizePort(val) {
     let port = parseInt(val, 10);
-  
+
     if (isNaN(port)) {
       // named pipe
       return val;
     }
-  
+
     if (port >= 0) {
       // port number
       return port;
     }
-  
+
     return false;
 }
 
@@ -51,11 +51,11 @@ function onError(error) {
     if (error.syscall !== 'listen') {
       throw error;
     }
-  
+
     let bind = typeof port === 'string'
       ? 'Pipe ' + port
       : 'Port ' + port;
-  
+
     // handle specific listen errors with friendly messages
     switch (error.code) {
       case 'EACCES':
@@ -70,7 +70,7 @@ function onError(error) {
         throw error;
     }
 }
-  
+
 /**
  * Event listener for HTTP server "listening" event.
  */

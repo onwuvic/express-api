@@ -1,10 +1,9 @@
-import dotenv from 'dotenv';
+import _ from './config/loadenv'; // this auto preload our environment variables
+import config from './config'; // get our environment state variables
 import mongoose from 'mongoose';
 
-dotenv.config();
-
 export const connect = () => {
-    return mongoose.connect(process.env.DATA_URL)
+    return mongoose.connect(config.database.url)
         .then(connect => {
             console.log('connected to mongoDB');
         })
