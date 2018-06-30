@@ -4,10 +4,10 @@ import merge from 'lodash.merge'; // Use to merge our final configuration
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 // App port
-let port = process.env.PORT;
+const port = process.env.PORT;
 
 // database url for development
-let db = process.env.DEV_DATA_URL;
+const db = process.env.DEV_DATA_URL;
 
 // store our environment state in an env variable
 const env = process.env.NODE_ENV;
@@ -23,24 +23,28 @@ const baseConfig = {
 // set an empty object to store the new set enviroment state
 let envConfig = {};
 
+/* eslint global-require: "off" */
 switch (env) {
-	// if env == development or dev, set envConfig to development environment
-	// in order word, set our environment to development enviroment
+  // if env == development or dev, set envConfig to development environment
+  // in order word, set our environment to development enviroment
   case 'development':
   case 'dev':
     envConfig = require('./dev.env').config;
-		break;
-	// if env == testing or test, set envConfig to testing environment
-	// in order word, set our environment to testing enviroment
+    break;
+    // if env == testing or test, set envConfig to testing environment
+    // in order word, set our environment to testing enviroment
   case 'testing':
   case 'test':
     envConfig = require('./test.env').config;
-		break;
-	// if nothing is set use the development environment by default
+    break;
+    // if nothing is set use the development environment by default
   default:
     envConfig = require('./dev.env').config;
     break;
 }
 
-// export the merge config. it merges envConfig on top of baseConfig, overlaping what's on baseConfig
+/**
+ *  export the merge config.
+ * it merges envConfig on top of baseConfig, overlaping what's on baseConfig
+ */
 export default merge(baseConfig, envConfig);

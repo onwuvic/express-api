@@ -3,10 +3,12 @@
  * It export our testing environment configuration
  * It get our testing database url for .env file
  */
-let db = process.env.TEST_DATA_URL;
+const db = process.env.TEST_DATA_URL;
 
-export const config = {
+const config = {
   database: {
     url: db
   }
 };
+
+export default config;
