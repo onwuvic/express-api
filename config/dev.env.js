@@ -5,10 +5,8 @@
  */
 const db = process.env.DEV_DATA_URL;
 
-const config = {
+export const config = {
   database: {
     url: db
   }
 };
-
-export default config;
