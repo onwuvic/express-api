@@ -6,7 +6,7 @@
   "scripts": {
     "babel-node": "babel-node --presets=env",
     "start": "nodemon --exec npm run babel-node src/server.js",
-    "dev": "npm-run-all --parallel security-check start lint:watch",
+    "dev": "npm-run-all --parallel security-check start lint",
     "security-check": "nsp check",
     "mocha:test": "mocha --timeout 10000 --require babel-core/register \"tests/**/*.spec.js\"",
     "test": "cross-env NODE_ENV=testing npm-run-all --parallel mocha:test",

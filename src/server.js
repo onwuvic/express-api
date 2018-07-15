@@ -3,8 +3,10 @@
  */
 import app from './app';
 import config from './config';
-// const debug = require('debug')('my-api:server');
+import debug from 'debug';
 import http from 'http';
+
+debug('my-api:server');
 
 /**
  * Get port from environment and store in Express.
