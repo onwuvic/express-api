@@ -2,7 +2,7 @@ import express from 'express';
 import logger from 'morgan';
 import bodyParser from 'body-parser';
 import { connect } from './database';
-import indexRouter from './routes/index';
+import indexRouter from './api/routes/index';
 // Declare an app from express
 const app = express();
 

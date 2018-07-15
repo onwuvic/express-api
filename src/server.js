@@ -3,7 +3,7 @@
  */
 import app from './app';
 import config from './config';
-const debug = require('debug')('my-api:server');
+// const debug = require('debug')('my-api:server');
 import http from 'http';
 
 /**

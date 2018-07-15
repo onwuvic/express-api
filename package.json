@@ -5,13 +5,13 @@
   "main": "server.js",
   "scripts": {
     "babel-node": "babel-node --presets=env",
-    "start": "nodemon --exec npm run babel-node server.js",
+    "start": "nodemon --exec npm run babel-node src/server.js",
     "dev": "npm-run-all --parallel security-check start lint:watch",
     "security-check": "nsp check",
     "mocha:test": "mocha --timeout 10000 --require babel-core/register \"tests/**/*.spec.js\"",
     "test": "cross-env NODE_ENV=testing npm-run-all --parallel mocha:test",
-    "lint": "esw config controllers models routes --color",
-    "lint:fix": "esw config controllers models routes --fix",
+    "lint": "esw src tests --color",
+    "lint:fix": "esw src tests --fix",
     "lint:watch": "npm run lint -- --watch"
   },
   "keywords": [

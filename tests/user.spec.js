@@ -1,17 +1,12 @@
 import chai, { expect } from 'chai';
 import chaiHttp from 'chai-http';
-import app from '../app';
-// import { dropDb } from './helpers';
-import { User } from '../models/User';
+import app from '../src/app';
+import { User } from '../src/api/models/User';
 
 chai.use(chaiHttp);
 
 describe("User", () => {
 
-  // beforeEach(function(done) {
-  //   dropDb();
-  //   done();
-  // });
   beforeEach((done) => {
     User.remove({}, (error) => {
       done();
