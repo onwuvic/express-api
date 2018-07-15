@@ -18,7 +18,7 @@ router.get('/user/:id', show);
 router.post('/user', create);
 
 // UPDATE ONE USER
-router.patch('/user/:id', update);
+router.put('/user/:id', update);
 
 // DELETE ONE USER
 router.delete('/user/:id', destroy);

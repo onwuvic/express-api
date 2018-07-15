@@ -1,4 +1,4 @@
-import User from '../models/User';
+import { User } from '../models/User';
 
 // GET ALL USERS FROM THE DATABASE
 export const users = (req, res) => {
@@ -10,10 +10,14 @@ export const users = (req, res) => {
 
 // CREATE A NEW USER
 export const create = (req, res) => {
-  new User(req.body)
-    .save()
-    .then(user => res.status(201).json(user))
-    .catch(error => res.status(500).send(error.message));
+  // new User(req.body)
+  //   .save()
+  //   .then(user => res.status(201).json(user))
+  //   .catch(error => res.status(500).send(error.message));
+  User.create(req.body, (error, user) => {
+    if(error) return res.status(500).send('There was a problem creating the user to the database.');
+    return res.status(201).json(user);
+  })
 };
 
 // GET A SINGLE USER FROM THE DATABASE
